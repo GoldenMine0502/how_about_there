@@ -1,0 +1,161 @@
+body{
+    overflow-y: auto;
+}
+
+.content{
+    width:60%;
+    height:auto;
+
+    margin:auto;
+    padding-bottom:200px;
+}
+
+.content > .icon-box{
+    width:100%;
+    height:60px;
+
+    display: flex;
+    align-items: center;
+
+    margin-top:30px;
+}
+
+.content > .text-box{
+    width:100%;
+    height:70px;
+
+    display: flex;
+    align-items: center;
+
+    color:#1F1B1B;
+    font-family: "SUIT";
+    font-weight:800;
+    font-size:20px;
+}
+
+.content > .image-box{
+    width:100%;
+    height:auto;
+
+    border-radius: 5px;
+}
+
+.content > .image-box > img{
+    width:100%;
+
+    border-radius:5px;
+}
+
+.content > .room-box{
+    width:100%;
+    height:auto;
+    margin-top:30px;
+}
+
+.content > .room-box > h2{
+    color:#646464;
+    font-size:18px;
+    line-height:50px;
+    font-family: 'SUIT';
+    font-weight:600;
+}
+
+.content > .room-box > .list{
+    width:100%;
+    height:300px;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-top:30px;
+}
+
+.content > .room-box > .list > .text{
+    width:calc(50% - 60px);
+    height:calc(100% - 40px);
+
+    padding:20px;
+
+    border-radius: 5px;
+
+    background-color: rgb(245,245,245);
+}
+
+
+.content > .room-box > .list > .text > h2{
+    color:rgba(36, 36, 36, 1);
+    font-family: 'SUIT';
+    font-weight:600;
+}
+
+.content > .room-box > .list > .text > ul > li{
+    color:rgba(156, 156, 156, 1);
+    font-family: 'SUIT';
+    font-weight:600;
+    font-size:16px;
+
+    margin-top:5px;
+}
+
+.content > .room-box > .list > .text > ul li::before{
+    color:rgba(156, 156, 156, 1);
+}
+
+.content > .room-box > .list > .image{
+    width:50%;
+    height:100%;
+
+}
+
+.content > .room-box > .list > .image > img{
+    width:100%;
+    height:100%;
+}
+
+.content > .room-box > .button > input[type=submit]{
+    width:360px;
+    height:50px;
+
+    display: block;
+
+    margin:auto;
+    margin-top:50px;
+
+    border:none;
+    border-radius:5px;
+
+    background-color: rgb(48, 48, 154);
+
+    font-size:18px;
+    color:#fff;
+}
+
+.content > .room-box > .button > input[type=submit]:hover{
+    width:360px;
+
+    color:#1A4886;
+
+    border:2px solid #1A4886;
+    
+    background-color:#fff;
+}
+
+.content > .comment-box{
+    width:100%;
+    height:auto;
+}
+
+.content > .comment-box > h2{
+    color:#646464;
+    font-size:18px;
+    line-height:50px;
+    font-family: 'SUIT';
+    font-weight:600;
+}
+
+.content > .comment-box > .comment{
+    width:100%;
+    height:50px;
+
+    border-top:1px solid rgb(230,230,230);
+}
