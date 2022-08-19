@@ -2,11 +2,13 @@ package kr.goldenmine.how_about_there.hotels;
 
 import java.util.List;
 import java.util.Optional;
+import javax.websocket.server.PathParam;
 import kr.goldenmine.how_about_there.users.User;
 import kr.goldenmine.how_about_there.users.UserDatabase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,9 +59,15 @@ public class HotelController {
     }
 
     @GetMapping()
-    public ResponseEntity hotelList() {
-        List<Hotel> hotelList = hotelDatabase.getAllHotel();
+    public ResponseEntity hotelList(@PathParam("curPage") String curPage) {
+        List<Hotel> hotelList;
+        if (curPage.isBlank()) {
+            hotelList = hotelDatabase.getAllHotel();
 
+            return ResponseEntity.status(200).body(hotelList);
+        } else {
+            hotelList = hotelDatabase.getHotelPaging(Integer.valueOf(curPage));
+        }
         return ResponseEntity.status(200).body(hotelList);
     }
 }

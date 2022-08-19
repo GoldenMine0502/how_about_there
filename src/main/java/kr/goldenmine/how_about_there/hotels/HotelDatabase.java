@@ -36,11 +36,8 @@ public class HotelDatabase {
     public List<Hotel> getHotelPaging(int curPage) {
         int start = (curPage - 1) * 9;
         int finish = (curPage) * 9;
-
+        System.out.println("start" + start);
+        System.out.println("finish" + finish);
         return hotels.subList(start, finish);
-    }
-
-    public List<Hotel> getHotels() {
-        return hotels;
     }
 }
