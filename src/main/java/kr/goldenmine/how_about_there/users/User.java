@@ -1,6 +1,6 @@
 package kr.goldenmine.how_about_there.users;
 
-public class User implements Cloneable {
+public class User {
     String id;
     String password;
 
@@ -15,8 +15,7 @@ public class User implements Cloneable {
         this.gender = gender;
     }
 
-    @Override
-    protected User clone() {
+    public User withoutPassword() {
         User user = new User(id, null, nickname, gender);
 
         return user;

@@ -33,7 +33,7 @@ public class UserDatabase {
 
     public Optional<User> getUserById(String id) {
         // 비밀번호 제거 후 리턴
-        return users.stream().filter(it -> it.id.equals(id)).map(it -> it.clone()).findFirst();
+        return users.stream().filter(it -> it.id.equals(id)).map(User::withoutPassword).findFirst();
     }
 
     public void saveAll() {
