@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>저기어때</title>
+
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/hotel.css">
+
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/hotelapi.js" type="module"></script>
+</head>
+<body>
+<div class="header">
+    <img src="./image/Logo.png"/>
+</div>
+
+<div class="content">
+    <div class="text-box">
+        <h2>호텔 선택</h2>
+    </div>
+
+    <div class="data-box">
+        <div class="tag-box">
+            <p>날짜</p>
+
+            <div class="list-box">
+                <div class="list color1">8/19</div>
+                <div class="list color1">8/20</div>
+                <div class="list color1">8/21</div>
+            </div>
+
+            <br><br>
+            <p>상세 조건</p><br>
+
+            <p>공용시설</p><br>
+            <div class="check-box">
+                <label><input type="checkbox" name="color" value="1">피트니스</label> <br>
+                <label><input type="checkbox" name="color" value="2">수영장</label> <br>
+                <label><input type="checkbox" name="color" value="3">골프장</label> <br>
+                <label><input type="checkbox" name="color" value="4">레스토랑</label> <br>
+                <label><input type="checkbox" name="color" value="5">라운지</label> <br>
+                <label><input type="checkbox" name="color" value="6">편의점</label> <br>
+                <label><input type="checkbox" name="color" value="7">노래방</label> <br>
+                <label><input type="checkbox" name="color" value="8">건조기</label> <br>
+                <label><input type="checkbox" name="color" value="9">주차장</label> <br>
+            </div>
+
+        </div>
+
+        <div class="category-box">
+            <p>호텔 검색하기</p>
+            <div class="input-box">
+                <img src="./image/search.svg"/>
+                <input type="text" id="category" placeholder="이름을 검색하세요."/>
+            </div>
+
+            <div class="list-box" id="hotellist">
+                <div class="list" onclick="SubmitList(event)">호텔1</div>
+                <div class="list" onclick="SubmitList(event)">호텔2</div>
+                <div class="list" onclick="SubmitList(event)">호텔3</div>
+                <div class="list" onclick="SubmitList(event)">호텔4</div>
+                <div class="list" onclick="SubmitList(event)">호텔5</div>
+                <div class="list" onclick="SubmitList(event)">호텔6</div>
+                <div class="list" onclick="SubmitList(event)">호텔7</div>
+                <div class="list" onclick="SubmitList(event)">호텔8</div>
+                <div class="list" onclick="SubmitList(event)">호텔9</div>
+                <div class="list" onclick="SubmitList(event)">호텔10</div>
+            </div>
+            <input type="button" value="<<" style="background-color: #1A4886; display:block; margin:auto; width:15%; height:50px;
+                margin-top:50px; border:none; border-radius:5px; font-size:18px; color:#fff;">
+        </div>
+    </div>
+</div>
+
+
+<form id="secret-form" action="" method="">
+    <input type="text" id="form-category" value="" name="category"/>
+</form>
+</body>
+</html>

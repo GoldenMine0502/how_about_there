@@ -212,4 +212,19 @@
         height:calc(100% - 8px);
         font-size:14px;
     }
+
+    #next{
+        width:100%;
+        height:50px;
+
+        display: block;
+
+        margin:auto;
+        margin-top:50px;
+
+        border:none;
+        border-radius:5px;
+
+        font-size:20px;
+    }
 }
