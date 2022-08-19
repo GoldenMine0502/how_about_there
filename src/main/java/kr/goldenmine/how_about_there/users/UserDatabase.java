@@ -28,12 +28,12 @@ public class UserDatabase {
     }
 
     public Optional<User> login(String id, String password) {
-        return users.stream().filter(it -> it.id.equals(id) && it.password.equals(password)).findFirst();
+        return users.stream().filter(it -> it.getId().equals(id) && it.getPassword().equals(password)).findFirst();
     }
 
     public Optional<User> getUserById(String id) {
         // 비밀번호 제거 후 리턴
-        return users.stream().filter(it -> it.id.equals(id)).map(User::withoutPassword).findFirst();
+        return users.stream().filter(it -> it.getId().equals(id)).map(User::withoutPassword).findFirst();
     }
 
     public void saveAll() {

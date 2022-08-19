@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
 
 @Service("hotelDatabase")
@@ -17,5 +18,9 @@ public class HotelDatabase {
         Type type = new TypeToken<List<Hotel>>() {}.getType();
 
         hotels = gson.fromJson(new InputStreamReader(HotelDatabase.class.getResourceAsStream("/data/hotels.json")), type);
+    }
+
+    public List<Hotel> getHotels() {
+        return hotels;
     }
 }
