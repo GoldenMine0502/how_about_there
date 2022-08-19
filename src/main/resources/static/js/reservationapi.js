@@ -1,4 +1,4 @@
-const SERVER_URL = "http://localhost:9999";
+const SERVER_URL = "http://minecraft.goldenmine.kr:9999";
 
 let reservation = () => {
     let hotelName = document.getElementById("hotelName")
