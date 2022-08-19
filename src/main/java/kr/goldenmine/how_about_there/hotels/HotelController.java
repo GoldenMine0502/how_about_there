@@ -46,16 +46,6 @@ public class HotelController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
     }
-        if(user.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK).body(user.get().withoutPassword());
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-        }
-    }
-
-    @GetMapping("/userinfo")
-    public ResponseEntity<User> userInfo(String id) {
-        Optional<User> user = userDatabase.getUserById(id);
 
     @GetMapping("/userinfo")
     public ResponseEntity<User> userInfo(String id) {
@@ -66,23 +56,5 @@ public class HotelController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
-        if(user.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK).body(user.get().withoutPassword());
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-        }
-    }
-
-    @GetMapping()
-    public ResponseEntity hotelList(@PathParam("curPage") String curPage) {
-        List<Hotel> hotelList;
-        if (curPage.isBlank()) {
-            hotelList = hotelDatabase.getAllHotel();
-
-            return ResponseEntity.status(200).body(hotelList);
-        } else {
-            hotelList = hotelDatabase.getHotelPaging(Integer.valueOf(curPage));
-        }
-        return ResponseEntity.status(200).body(hotelList);
     }
 }

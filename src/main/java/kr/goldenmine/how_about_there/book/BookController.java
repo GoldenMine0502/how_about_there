@@ -2,6 +2,7 @@ package kr.goldenmine.how_about_there.book;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import kr.goldenmine.how_about_there.hotels.Hotel;
 import kr.goldenmine.how_about_there.hotels.HotelDatabase;
 import kr.goldenmine.how_about_there.users.User;
 import kr.goldenmine.how_about_there.users.UserDatabase;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.websocket.server.PathParam;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -57,5 +60,18 @@ public class BookController {
             }
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<Hotel>> hotelList(@PathParam("curPage") String curPage) {
+        List<Hotel> hotelList;
+        if (curPage.isBlank()) {
+            hotelList = hotelDatabase.getAllHotel();
+
+            return ResponseEntity.status(200).body(hotelList);
+        } else {
+            hotelList = hotelDatabase.getHotelPaging(Integer.parseInt(curPage));
+        }
+        return ResponseEntity.status(200).body(hotelList);
     }
 }
