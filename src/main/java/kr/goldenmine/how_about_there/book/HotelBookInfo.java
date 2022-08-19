@@ -1,5 +1,6 @@
 package kr.goldenmine.how_about_there.book;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HotelBookInfo {
@@ -8,6 +9,7 @@ public class HotelBookInfo {
 
     public HotelBookInfo(int roomId) {
         this.roomId = roomId;
+        this.people = new ArrayList<>();
     }
 
     public int getRoomId() {

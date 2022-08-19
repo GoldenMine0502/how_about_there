@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/hotel")
 public class BookController {
     public static final int HOTEL_MAX = 4;
 

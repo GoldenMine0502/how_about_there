@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/hotel")
+@RequestMapping("/auth")
 public class HotelController {
     private final HotelDatabase hotelDatabase;
     private final UserDatabase userDatabase;
