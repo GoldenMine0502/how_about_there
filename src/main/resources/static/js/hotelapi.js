@@ -18,7 +18,7 @@ let getHotels = () => {
             totalHTML += current;
         }
 
-        document.getElementsByClassName("list-box")[1].innerHTML = totalHTML
+        document.getElementById("hotellist").innerHTML = totalHTML
 
         // let hotelElements = document.getElementsByClassName("list")
 

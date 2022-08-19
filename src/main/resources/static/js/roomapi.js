@@ -3,7 +3,7 @@ const SERVER_URL = "http://localhost:8080";
 let getRoomData = () => {
     let hotelName = localStorage.getItem("hotelName")
 
-    document.getElementsByClassName("text-box")[0].innerHTML = "<h2>" + hotelName + "</h2>";
+    document.getElementById("hotelname").innerHTML = hotelName;
 
     axios.get(SERVER_URL + "/hotel/state?hotelName=" + hotelName).then((response) => {
         console.log(response.data["bookInfoList"])
