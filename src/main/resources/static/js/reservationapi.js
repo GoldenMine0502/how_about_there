@@ -19,7 +19,7 @@ let reservation = () => {
 
     });
 }
-
+현
 window.onload = () => {
     let hotelName = document.getElementById("hotelName")
     let roomId = document.getElementById("roomId")

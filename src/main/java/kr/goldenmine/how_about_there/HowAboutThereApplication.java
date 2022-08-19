@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+//@WebAppConfiguration
 public class HowAboutThereApplication {
     // https://howtodoinjava.com/gson/gson-serialazedname/
     /*

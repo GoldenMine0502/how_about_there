@@ -44,8 +44,8 @@ public class BookController {
 
     @PostMapping("/book")
     public ResponseEntity<HotelInfo> book(String id, String password, String hotelName, int roomId) {
-        System.out.println(id);
-        System.out.println(password);
+//        System.out.println(id);
+//        System.out.println(password);
         Optional<User> user = userDatabase.login(id, password);
 
         if(user.isPresent()) {
@@ -67,7 +67,7 @@ public class BookController {
     @GetMapping("/list")
     public ResponseEntity<List<Hotel>> hotelList(@PathParam("curPage") String curPage) {
         List<Hotel> hotelList;
-        if (curPage.isBlank()) {
+        if (curPage == null) {
             hotelList = hotelDatabase.getAllHotel();
 
             return ResponseEntity.status(200).body(hotelList);
