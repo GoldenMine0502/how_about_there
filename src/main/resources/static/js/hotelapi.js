@@ -4,10 +4,12 @@ const SERVER_URL = "http://minecraft.goldenmine.kr:9999";
 let getHotels = () => {
     let elementHotels = document.getElementById("list-box");
 
+    let page = localStorage.getItem("page")
+
     // let formData = new FormData();
     // formData.append("curPage", "1");
 
-    axios.get(SERVER_URL + "/hotel/list?curPage=1").then((response) => {
+    axios.get(SERVER_URL + "/hotel/list?curPage=" + page).then((response) => {
         let data = response.data
 
         let totalHTML = "";
@@ -37,6 +39,38 @@ let loadHotelAndRoute = (hotelName) => {
     location.href = "/room.html"
 }
 
-window.onload = () => {
+let previousPage = () => {
+    let page = parseInt(localStorage.getItem("page"))
+    if(page > 1) {
+        page = page - 1;
+    }
+    localStorage.setItem("page", String(page));
+
     getHotels()
+}
+
+let nextPage = () => {
+    let page = parseInt(localStorage.getItem("page"))
+    if(page < 100) {
+        page = page + 1;
+    }
+    localStorage.setItem("page", String(page));
+
+    getHotels()
+}
+
+window.onload = () => {
+    localStorage.setItem("page", "1")
+    getHotels()
+
+    let previous = document.getElementById("previous")
+    let next = document.getElementById("next")
+
+    if(previous != null) {
+        previous.addEventListener('click', previousPage)
+    }
+
+    if(next != null) {
+        next.addEventListener('click', nextPage)
+    }
 }
