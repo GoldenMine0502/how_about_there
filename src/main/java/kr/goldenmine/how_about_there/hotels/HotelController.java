@@ -1,7 +1,7 @@
 package kr.goldenmine.how_about_there.hotels;
 
-import com.google.gson.JsonObject;
-import kr.goldenmine.how_about_there.hotels.HotelDatabase;
+import java.util.List;
+import java.util.Optional;
 import kr.goldenmine.how_about_there.users.User;
 import kr.goldenmine.how_about_there.users.UserDatabase;
 import org.springframework.http.HttpStatus;
@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/auth")
 public class HotelController {
+
     private final HotelDatabase hotelDatabase;
     private final UserDatabase userDatabase;
 
@@ -46,6 +44,16 @@ public class HotelController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
     }
+        if(user.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(user.get().withoutPassword());
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+    }
+
+    @GetMapping("/userinfo")
+    public ResponseEntity<User> userInfo(String id) {
+        Optional<User> user = userDatabase.getUserById(id);
 
     @GetMapping("/userinfo")
     public ResponseEntity<User> userInfo(String id) {
@@ -56,5 +64,17 @@ public class HotelController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
+        if(user.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(user.get().withoutPassword());
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+    }
+
+    @GetMapping()
+    public ResponseEntity hotelList() {
+        List<Hotel> hotelList = hotelDatabase.getAllHotel();
+
+        return ResponseEntity.status(200).body(hotelList);
     }
 }
