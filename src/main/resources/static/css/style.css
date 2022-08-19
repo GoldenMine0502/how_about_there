@@ -1,0 +1,323 @@
+*{
+    margin:0;
+}
+
+@font-face {
+    font-family: 'SUIT';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body{
+    width:100vw;
+    height:100vh;
+
+    background-color:#fff;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+body > .header{
+    width:80%;
+    height:100px;
+    
+    display: flex;
+    align-items: center;
+
+    background-color: #fff;
+
+    margin:auto;
+}
+
+body > .header > .logo{
+    width:150px;
+}
+
+body > hr{
+    width:80%;
+    height:1px;
+
+    margin:auto;
+    background: #E1E1E1;
+}
+
+body > .recipe{
+    width: calc(80% - 40px);
+    height:100px;
+
+    margin:auto;
+    margin-top:30px;
+
+    padding-left:20px;
+    padding-right:20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body > .recipe > .icon-box{
+    width:200px;
+}
+
+body > .recipe > .icon-box > p{
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 32px;
+/* identical to box height, or 133% */
+
+    color: #1F1B1B;
+}
+
+body > .recipe > .icon-box > .interests{
+    width:40px;
+}
+
+body > .recipe > .refresh-box{
+    width: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+body > .recipe > .refresh-box > .material-symbols-outlined {
+
+    width:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 12px;
+
+
+    background-color: #42C1C1;
+    border-radius: 12px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+body > .recipe > div > div > p{
+    /* 새로고침 */
+
+    width: 49px;
+    height: 20px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    color: #FFFFFF;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+body > .content-box{
+    width:100%;
+    height:calc(100% - 4em);
+
+}
+
+body > .content-box > .content{
+    width:80%;
+    height:70%;
+
+    margin:auto;
+    margin-top:23px;
+}
+
+body > .content-box > .content > .top{
+    width:800px;
+    height:300px;
+
+    display: flex;
+    justify-content: space-between;
+    
+    margin:auto;
+    margin-top:50px;
+}
+
+body > .content-box > .content > .top > div{
+    width:calc(50% - 50px);
+    height:100%;
+
+    display: flex;
+    align-items: center;
+}
+
+body > .content-box > .content > .top > div > div{
+    width:100%;
+    height:100%;
+}
+
+body > .content-box > .content > .top > div > div > img{
+    width:100%;
+    
+    border-radius: 12px;
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+}
+
+body > .content-box > .content > .top > div > div > p{
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 50px;
+    /* identical to box height, or 150% */
+
+    text-align: center;
+
+    color: #242424;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+body > .content-box > .content > .end{
+    width:800px;
+    height:300px;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin:auto;
+
+}
+
+body > .content-box > .content > .end > div{
+    width:calc(50% - 50px);
+    height:100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+body > .content-box > .content > .end > div > div{
+    width:100%;
+    height:70%;
+
+}
+
+body > .content-box > .content > .end > div > div > img{
+    width:100%;
+    
+    border-radius: 12px;
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+}
+
+body > .content-box > .content > .end > div > div > p{
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 50px;
+    /* identical to box height, or 150% */
+
+    text-align: center;
+
+    color: #242424;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+img{
+    user-select: none;
+}
+
+
+.secret-form{
+    display: none;
+}
+
+@media (max-width:639px){
+    body > .content-box > .content > .top ,  body > .content-box > .content > .end{
+        display: block;
+        width:100%;
+        height:500px;
+    }
+
+    body > .content-box > .content > .top > div, body > .content-box > .content > .end > div{
+        width:100%;
+        height:50%;
+    }
+
+    body > .content-box > .content > .top > div:first-child, body > .content-box > .content > .end > div:first-child{
+        margin-bottom:20px;
+    }
+
+    body > .content-box > .content > .end{
+        margin-top:0;
+    }
+
+    body > .content-box{
+        padding-bottom:100px;
+        height:auto;
+    }
+
+    body > .recipe{
+        display: block;
+        width:80%;
+        height:150px;
+        padding:0;
+    }    
+
+    body > .recipe > .icon-box{
+        height:100px;
+    }
+
+    body > .recipe > .refresh-box{
+        width:100%;
+        height:50px;
+        justify-content: flex-end;
+    }
+
+    body > .recipe > .refresh-box > div{
+        width:150px;
+        margin-top:20px;
+    }
+
+    /* body > .content-box > .content > .top > div > div > img, body > .content-box > .content > .end > div > div > img{
+        width:80%;
+        margin:auto;
+    } */
+}

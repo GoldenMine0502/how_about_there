@@ -1,0 +1,32 @@
+*{
+    margin:0;
+}
+
+body{
+    width:100vw;
+    height:100vh;
+
+    overflow: hidden;
+}
+
+.header{
+    width:80%;
+    height:100px;
+    margin:auto;
+
+    display: flex;
+    align-items: center;
+        
+    border-bottom:1px solid #E1E1E1;
+
+}
+
+.header > img{
+    width:140px;
+}
+
+@media (max-width:639px) {
+    .header{
+        margin-top:30px;
+    }
+}
