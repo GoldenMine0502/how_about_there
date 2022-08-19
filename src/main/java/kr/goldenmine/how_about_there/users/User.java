@@ -1,12 +1,12 @@
 package kr.goldenmine.how_about_there.users;
 
 public class User {
-    String id;
-    String password;
+    private String id;
+    private String password;
 
-    String nickname;
+    private String nickname;
 
-    String gender;
+    private String gender;
 
     public User(String id, String password, String nickname, String gender) {
         this.id = id;
@@ -19,5 +19,21 @@ public class User {
         User user = new User(id, null, nickname, gender);
 
         return user;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

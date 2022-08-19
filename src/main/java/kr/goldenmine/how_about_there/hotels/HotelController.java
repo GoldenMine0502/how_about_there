@@ -1,11 +1,10 @@
 package kr.goldenmine.how_about_there.hotels;
 
-import com.google.gson.JsonObject;
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import kr.goldenmine.how_about_there.users.User;
 import kr.goldenmine.how_about_there.users.UserDatabase;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,13 +23,37 @@ public class HotelController {
         this.userDatabase = userDatabase;
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<Object> register(String id, String password, String nickname, String gender) {
+        Optional<User> user = userDatabase.register(id, password, nickname, gender);
+
+        if(user.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(null);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+    }
+
     @PostMapping("/login")
-    public String login(String id, String password) throws IOException {
+    public ResponseEntity<User> login(String id, String password) {
         Optional<User> user = userDatabase.login(id, password);
 
-        JsonObject object = new JsonObject();
+        if(user.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(user.get().withoutPassword());
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+    }
 
-        return object.toString();
+    @GetMapping("/userinfo")
+    public ResponseEntity<User> userInfo(String id) {
+        Optional<User> user = userDatabase.getUserById(id);
+
+        if(user.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(user.get().withoutPassword());
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
     }
 
     @GetMapping()

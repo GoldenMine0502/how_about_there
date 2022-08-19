@@ -39,4 +39,8 @@ public class HotelDatabase {
 
         return hotels.subList(start, finish);
     }
+
+    public List<Hotel> getHotels() {
+        return hotels;
+    }
 }
