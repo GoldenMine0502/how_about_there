@@ -44,6 +44,8 @@ public class BookController {
 
     @PostMapping("/book")
     public ResponseEntity<HotelInfo> book(String id, String password, String hotelName, int roomId) {
+        System.out.println(id);
+        System.out.println(password);
         Optional<User> user = userDatabase.login(id, password);
 
         if(user.isPresent()) {

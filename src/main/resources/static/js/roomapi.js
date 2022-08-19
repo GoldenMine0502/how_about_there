@@ -1,7 +1,9 @@
-const SERVER_URL = "http://localhost:8080";
+const SERVER_URL = "http://localhost:9999";
 
 let getRoomData = () => {
     let hotelName = localStorage.getItem("hotelName")
+
+    console.log("hotelName: " + hotelName);
 
     document.getElementById("hotelname").innerHTML = hotelName;
 
@@ -15,8 +17,9 @@ let getRoomData = () => {
         for (const [key, value] of Object.entries(list)) {
             console.log(key, value);
 
-            let tag = "<div class=\"list\">" +
-                "<div class=\"text\">" +
+            let tag =
+                "<div class=\"list\">" +
+                "<div class=\"text\" id='room" + key + "'>" +
                 "<h2>" + key + "호</h2>" +
                 "<ul>" +
                 "<li>4인실</li>" +
@@ -31,10 +34,20 @@ let getRoomData = () => {
             totalHTML += tag;
         }
 
-        document.getElementsByClassName("room-box")[0].innerHTML = totalHTML;
+        document.getElementById("roomlist").innerHTML = totalHTML;
+
+        for (const [key, value] of Object.entries(list)) {
+            document.getElementById("room" + key).addEventListener("click", () => loadRoomAndRoute(key));
+        }
     }).catch((error) => {
 
     });
+}
+
+let loadRoomAndRoute = (roomId) => {
+    localStorage.setItem("roomId", roomId)
+
+    location.href="/reservation.html"
 }
 
 window.onload = () => {

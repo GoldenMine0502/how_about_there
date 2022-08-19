@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/reservation.css">
   <title>저기어때</title>
+
+  <script src="./js/axios.min.js"></script>
+  <script src="./js/reservationapi.js" type="module"></script>
 </head>
 <body>
   <header>
@@ -20,19 +23,6 @@
     </div>
     <ul class="food-list">
       <li>
-        <div class="food-name">회원 아이디</div>
-        <div class="day">
-            <input type="text" name="id" id="user-id" placeholder="아이디를 입력해주세요">
-        </div>
-        </div>
-      </li>
-      <li>
-        <div class="food-name">회원 비밀번호</div>
-        <div class="day">
-            <input type="text" name="password" id="user-password" placeholder="비밀번호를 입력해주세요">
-        </div>
-      </li>
-      <li>
         <div class="food-name">호텔 이름</div>
         <div class="day">
             <input type="text" name="hotelname" id="hotelName" placeholder="호텔이름을 입력해주세요">
@@ -45,7 +35,7 @@
         </div>
       </li>
       <div class="button">
-        <input type="submit" id="submit" value="예약">
+        <input type="button" id="submit" value="예약">
     </div>
     </ul>
   </main>

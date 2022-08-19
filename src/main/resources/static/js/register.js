@@ -5,22 +5,33 @@ let register = () => {
     let nickname = document.getElementById("user-nickname").value;
     let gender = document.getElementById("user-gender").value;
 
-    if (password === passwordCheck) {
-        axios.post(SERVER_URL + "/auth/register", {
-            email: userId,
-            password: password,
-            nickname: nickname,
-            gender: gender
+    let formData = new FormData();
+    formData.append("id", userId);
+    formData.append("password", password);
+    formData.append("nickname", nickname);
+    formData.append("gender", gender);
+
+    axios.post(SERVER_URL + "/auth/register", formData)
+        .then((response) => {
+            if (response.status === 201) {
+                // saveToken(response.data["token"]);
+                localStorage.setItem("id", userId)
+                localStorage.setItem("password", password)
+
+                location.href='/hotel.html'
+            } else {
+                alert("이미 같은 아이디가 존재합니다.");
+            }
         })
-            .then((response) => {
-                if (response.status === 201) {
-                    saveToken(response.data["token"]);
-                }
-            })
-            .catch((error) => {
-                alert(error.response.data["message"]);
-            });
-    } else {
-        alert("올바르지 않은 양식입니다.");
-    }
+        .catch((error) => {
+            // alert(error.response.data["message"]);
+        });
 };
+
+window.onload = () => {
+    let registerButton = document.getElementById("register-btn")
+
+    if(registerButton != null) {
+        registerButton.addEventListener('click', register)
+    }
+}

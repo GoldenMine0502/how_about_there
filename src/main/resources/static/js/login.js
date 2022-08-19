@@ -3,13 +3,22 @@ let login = () => {
     let userId = document.getElementById("user-id").value;
     let password = document.getElementById("user-password").value;
 
+    let formData = new FormData();
+    formData.append("id", userId);
+    formData.append("password", password);
+
     axios
-        .post(SERVER_URL + "/auth/login", {
-            username: userId,
-            password: password,
-        })
+        .post(SERVER_URL + "/auth/login", formData)
         .then((response) => {
-            saveToken(response.data["token"]);
+            // saveToken(response.data["token"]);
+            if (response.status === 200) {
+                localStorage.setItem("id", userId)
+                localStorage.setItem("password", password)
+
+                location.href = "/hotel.html"
+            } else {
+                alert("로그인 실패");
+            }
         })
         .catch((error) => {
             alert(error.response.data["message"]);

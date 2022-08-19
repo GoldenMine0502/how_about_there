@@ -27,6 +27,8 @@ public class HotelController {
 
     @PostMapping("/register")
     public ResponseEntity<Object> register(String id, String password, String nickname, String gender) {
+        System.out.println(id);
+        System.out.println(password);
         Optional<User> user = userDatabase.register(id, password, nickname, gender);
 
         if(user.isPresent()) {
@@ -38,6 +40,8 @@ public class HotelController {
 
     @PostMapping("/login")
     public ResponseEntity<User> login(String id, String password) {
+        System.out.println(id);
+        System.out.println(password);
         Optional<User> user = userDatabase.login(id, password);
 
         if(user.isPresent()) {

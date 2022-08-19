@@ -10,6 +10,9 @@
 
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/room.css">
+
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/roomapi.js" type="module"></script>
 </head>
 <body>
     <div class="header">
@@ -22,14 +25,14 @@
         </div>
 
         <div class="text-box">
-            <h2>호텔이름</h2>
+            <h2 id="hotelname">호텔이름</h2>
         </div>
 
         <div class="image-box">
             <img src="./image/hotel.jpeg"/>
         </div>
 
-        <div class="room-box">
+        <div class="room-box" id="roomlist">
             <div class="list">
                 <div class="text">
                     <h2>방1</h2>

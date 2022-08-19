@@ -120,7 +120,7 @@
     }
 
 
-.content > form > input[type=submit]{
+.content > form > #register-btn {
     width:100%;
     height:50px;
 

@@ -1,4 +1,4 @@
-const SERVER_URL = "http://localhost:8080";
+const SERVER_URL = "http://localhost:9999";
 // http://web.goldenmine.kr:9999
 
 let getHotels = () => {
